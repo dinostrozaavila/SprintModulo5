@@ -1,6 +1,7 @@
 package sprintmodulo5.controlador;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import sprintmodulo5.modelo.Contacto;
 @WebServlet("/ContactoServlet")
 public class ContactoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private static final Logger LOGGER = Logger.getLogger(ContactoServlet.class.getName());
 
     public ContactoServlet() {
         super();
@@ -57,6 +59,11 @@ public class ContactoServlet extends HttpServlet {
         contacto.setCorreoElectronico(correoElectronico);
         contacto.setMensaje(mensaje);
 
+        // Mostrar los datos ingresados en la consola de Java
+        LOGGER.info("Nombre de usuario: " + nombreUsuario);
+        LOGGER.info("Correo electrónico: " + correoElectronico);
+        LOGGER.info("Mensaje: " + mensaje);
+
         // Simular guardado exitoso
         boolean guardadoExitoso = true;
 
@@ -67,5 +74,4 @@ public class ContactoServlet extends HttpServlet {
         doGet(request, response);
     }
 }
-
 
