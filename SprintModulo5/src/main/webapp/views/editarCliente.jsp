@@ -33,10 +33,17 @@
 				<label for="afp">AFP:</label> <input type="text" name="afp"
 					value="<%=cliente.getAfp()%>" class="form-control">
 			</div>
-			<div class="form-group">
-				<label for="sistemaSalud">Sistema de Salud:</label> <input
-					type="text" name="sistemaSalud"
-					value="<%=cliente.obtenerSistemaSalud()%>" class="form-control">
+			<div class="form-group col-md-4">
+				<label for="sistemaSalud">Sistema de Salud:</label> <select
+					id="sistemaSalud" name="sistemaSalud" class="form-control" required>
+					<option value="1"
+						<%=(cliente.obtenerSistemaSalud().equals("Fonasa")) ? "selected" : ""%>>Fonasa</option>
+					<option value="2"
+						<%=(cliente.obtenerSistemaSalud().equals("Isapre")) ? "selected" : ""%>>Isapre</option>
+
+				</select>
+
+
 			</div>
 			<div class="form-group">
 				<label for="direccion">Dirección:</label> <input type="text"

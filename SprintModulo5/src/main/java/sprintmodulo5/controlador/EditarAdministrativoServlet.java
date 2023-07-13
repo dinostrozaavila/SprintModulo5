@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sprintmodulo5.modelo.Cliente;
+import sprintmodulo5.modelo.Administrativo;
 
-@WebServlet("/EditarClienteServlet")
-public class EditarClienteServlet extends HttpServlet {
+@WebServlet("/EditarAdministrativoServlet")
+public class EditarAdministrativoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public EditarClienteServlet() {
+    public EditarAdministrativoServlet() {
         super();
     }
 
@@ -29,16 +29,16 @@ public class EditarClienteServlet extends HttpServlet {
             return;
         }
 
-        // Obtener el ID del cliente a editar desde la URL
-        int rutCliente = Integer.parseInt(request.getParameter("rutCliente"));
+        // Obtener el ID del administrativo a editar desde la URL
+        int rutAdministrativo = Integer.parseInt(request.getParameter("rutAdministrativo"));
 
-        // Obtener el cliente de la lista de usuarios por su ID
-        Cliente cliente = Cliente.obtenerClientePorRut(rutCliente);
+        // Obtener el administrativo de la lista de usuarios por su ID
+        Administrativo administrativo = Administrativo.obtenerAdministrativoPorRut(rutAdministrativo);
 
-        // Agregar el cliente al request para mostrarlo en el formulario de edición
-        request.setAttribute("cliente", cliente);
+        // Agregar el administrativo al request para mostrarlo en el formulario de edición
+        request.setAttribute("administrativo", administrativo);
 
-        getServletContext().getRequestDispatcher("/views/editarCliente.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/views/editarAdministrativo.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,30 +52,22 @@ public class EditarClienteServlet extends HttpServlet {
         }
 
         // Obtener los parámetros del formulario
-        int rutCliente = Integer.parseInt(request.getParameter("rutCliente"));
+        int rutAdministrativo = Integer.parseInt(request.getParameter("rutAdministrativo"));
         String nombre = request.getParameter("nombres");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
-        String telefono = request.getParameter("telefono");
-        String afp = request.getParameter("afp");
-        int sistemaSalud = Integer.parseInt(request.getParameter("sistemaSalud"));
-        String direccion = request.getParameter("direccion");
-        String comuna = request.getParameter("comuna");
-        int edad = Integer.parseInt(request.getParameter("edad"));
-        
-        // Obtener el cliente de la lista de usuarios por su ID
-        Cliente cliente = Cliente.obtenerClientePorRut(rutCliente);
+        String area = request.getParameter("area");
+        String experienciaPrevia = request.getParameter("experienciaPrevia");
 
-        // Actualizar los valores del cliente
-        cliente.setNombre(nombre);
-        cliente.setFechaNacimiento(fechaNacimiento);
+        // Obtener el administrativo de la lista de usuarios por su ID
+        Administrativo administrativo = Administrativo.obtenerAdministrativoPorRut(rutAdministrativo);
 
-           
-     // Actualizar los valores del cliente
-        cliente.actualizarCliente(telefono, afp, sistemaSalud, direccion, comuna, edad);
+        // Actualizar los valores del administrativo
+        administrativo.setNombre(nombre);
+        administrativo.setFechaNacimiento(fechaNacimiento);
+        administrativo.setArea(area);
+        administrativo.setExperienciaPrevia(experienciaPrevia);
 
-    
         // Redireccionar al servlet correspondiente según el tipo de usuario
         response.sendRedirect(request.getContextPath() + "/ListadoDeUsuariosServlet");
     }
-
 }

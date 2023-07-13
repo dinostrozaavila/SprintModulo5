@@ -128,6 +128,7 @@
 					<tr>
 						<th>Área</th>
 						<th>Experiencia Previa</th>
+						<th>Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -142,7 +143,8 @@
 					<tr>
 						<td><%=administrativo.getArea()%></td>
 						<td><%=administrativo.getExperienciaPrevia()%></td>
-					</tr>
+						<td><a href="EditarAdministrativoServlet" class="btn btn-primary">Editar Administrativo</a>
+								</tr>
 					<%
 					}
 					%>
@@ -161,8 +163,11 @@
 			<table class="table table-responsive custom-table">
 				<thead>
 					<tr>
+					<th>Rut</th>
+					<th>Nombre</th>
 						<th>Título</th>
 						<th>Fecha de Ingreso</th>
+						<th>Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -175,8 +180,12 @@
 					for (Profesional profesional : listaProfesionales) {
 					%>
 					<tr>
+						<td><%=profesional.getRun()%></td>
+						<td><%=profesional.getNombre()%></td>
 						<td><%=profesional.getTitulo()%></td>
 						<td><%=profesional.getFechaIngreso()%></td>
+										
+						<td><a href="EditarProfesionalServlet?rut=<%=profesional.getRun()%>"  class="btn btn-primary">Editar Profesional</a>
 					</tr>
 					<%
 					}
@@ -188,13 +197,8 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<a href="AgregarAdministrativoServlet" class="btn btn-primary">Editar Administrativo</a>
-			</div>
-			<div class="col">
-				<a href="AgregarProfesionalServlet" class="btn btn-primary">Editar Profesional</a>
-				</div>
 			
+						
 		</div>
 	</div>
 

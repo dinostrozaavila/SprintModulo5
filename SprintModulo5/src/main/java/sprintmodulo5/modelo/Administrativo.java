@@ -100,6 +100,21 @@ public class Administrativo extends Usuario {
 	}
 	
 	/**
+	 * Obtiene un administrativo de la lista por su RUN.
+	 *
+	 * @param run RUN del administrativo a buscar.
+	 * @return Administrativo correspondiente al RUN especificado, o null si no se encuentra.
+	 */
+	public static Administrativo obtenerAdministrativoPorRut(int run) {
+		for (Administrativo administrativo : listaAdministrativos) {
+			if (administrativo.getRun() == run) {
+				return administrativo;
+			}
+		}
+		return null; // Retornar null si no se encuentra el administrativo con el RUN especificado
+	}
+	
+	/**
 	 * Devuelve una representación en forma de cadena de la instancia de Administrativo.
 	 *
 	 * @return Representación en forma de cadena de la instancia de Administrativo.

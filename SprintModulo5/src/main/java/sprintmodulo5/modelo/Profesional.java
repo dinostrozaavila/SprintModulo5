@@ -4,34 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Profesional extends Usuario {
-	
+
     private String titulo; // Título del profesional
     private String fechaIngreso; // Fecha de ingreso del profesional
-    
-	// Lista para almacenar los profesionales
-	private static List<Profesional> listaProfesionales = new ArrayList<>();
-    
+
+    // Lista para almacenar los profesionales
+    private static List<Profesional> listaProfesionales = new ArrayList<>();
+
     public Profesional() {
         super();
     }
-    
+
     /**
      * Constructor de la clase Profesional que recibe todos los atributos.
      *
      * @param nombre          Nombre del profesional.
      * @param fechaNacimiento Fecha de nacimiento del profesional.
-     * @param run             RUN del profesional.
+     * @param rut             RUN del profesional.
      * @param tipoUsuario     Tipo de usuario (Cliente, Profesional, Administrativo).
      * @param titulo          Título del profesional.
      * @param fechaIngreso    Fecha de ingreso del profesional.
      */
-    public Profesional(String nombre, String fechaNacimiento, int run, String tipoUsuario,
-            String titulo, String fechaIngreso) {
-        super(nombre, fechaNacimiento, run, tipoUsuario);
+    public Profesional(String nombre, String fechaNacimiento, int rut, String tipoUsuario,
+                       String titulo, String fechaIngreso) {
+        super(nombre, fechaNacimiento, rut, tipoUsuario);
         this.titulo = titulo;
         this.fechaIngreso = fechaIngreso;
+        
     }
-    
+
     /**
      * Obtiene el título del profesional.
      *
@@ -77,7 +78,7 @@ public class Profesional extends Usuario {
             throw new IllegalArgumentException("La fecha de ingreso no puede quedar nula.");
         }
     }
-    
+
     /**
      * Agrega un profesional a la lista de profesionales.
      *
@@ -86,7 +87,7 @@ public class Profesional extends Usuario {
     public void guardarProfesional(List<Profesional> listaProfesionales) {
         listaProfesionales.add(this);
     }
-    
+
     /**
      * Obtiene la lista de profesionales.
      *
@@ -95,7 +96,22 @@ public class Profesional extends Usuario {
     public static List<Profesional> obtenerListaProfesionales() {
         return listaProfesionales;
     }
-    
+
+    /**
+     * Obtiene un profesional de la lista de profesionales por su RUN.
+     *
+     * @param rut RUN del profesional a buscar.
+     * @return Profesional correspondiente al RUT especificado, o null si no se encuentra.
+     */
+    public static Profesional obtenerProfesionalPorRut(int rut) {
+        for (Profesional profesional : listaProfesionales) {
+            if (profesional.getRun() == rut) {
+                return profesional;
+            }
+        }
+        return null;
+    }
+
     /**
      * Devuelve una representación en forma de cadena de la instancia de Profesional.
      *
@@ -113,4 +129,3 @@ public class Profesional extends Usuario {
                 '}';
     }
 }
-

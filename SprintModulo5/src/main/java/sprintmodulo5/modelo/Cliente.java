@@ -169,6 +169,16 @@ public class Cliente extends Usuario {
 
         return null; // Retornar null si no se encuentra el cliente con el rut especificado
     }
+    
+    public void actualizarCliente(String telefono, String afp, int sistemaSalud, String direccion, String comuna, int edad) {
+        setTelefono(telefono);
+        setAfp(afp);
+        setSistemaSalud(sistemaSalud);
+        setDireccion(direccion);
+        setComuna(comuna);
+        setEdad(edad);
+    }
+
     @Override
     public String toString() {
         return "Cliente {" +
