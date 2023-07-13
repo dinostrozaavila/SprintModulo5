@@ -1,0 +1,102 @@
+@charset "ISO-8859-1";
+
+/* Estilos para pantallas grandes */
+@media (min-width: 992px) {
+	#inicio {
+		display: flex;
+	}
+
+	#inicio>div.container {
+		width: 60%;
+	}
+
+	aside {
+		width: 40%;
+		float: right;
+		margin-left: 30px;
+		margin-top: 30px;
+	}
+}
+
+/* Estilos adicionales */
+#inicio {
+	margin-top: 30px;
+	margin-left: 5rem;
+	margin-bottom: 60px;
+}
+
+.h1-container {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.form-container.login-form-container {
+	margin-left: 5rem;
+}
+
+
+/* Estilos para la tabla de capacitaciones */
+table.custom-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 5rem;
+	border-left: 1px solid #ccc;
+	max-width: 100%;
+}
+
+.custom-table th,
+.custom-table td {
+	padding: 0.5rem;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+	border-right: none;
+	/* Eliminar el borde derecho en las celdas */
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+	border-right: 1px solid #ccc;
+	/* Agregar el borde derecho solo a la última columna */
+}
+
+.custom-table th {
+	font-weight: bold;
+}
+
+.custom-table {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+/* Estilos generales para el fondo negro y letras blancas */
+body {
+	background-color: black !important;
+	color: white !important;
+}
+
+/* Estilos generales para los botones de los formularios */
+button.btn-primary {
+	margin-top: 3rem;
+	margin-left: 5rem;
+	background-color: black;
+	border-color: white;
+	margin-bottom: 3rem;
+}
+
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 576px) {
+
+	.form-container,
+	.login-form-container,
+	.capacitaciones-container {
+		margin-left: 1rem;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		width: 100%;
+	}
+}
