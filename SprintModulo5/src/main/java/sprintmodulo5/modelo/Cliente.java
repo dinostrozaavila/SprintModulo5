@@ -151,13 +151,24 @@ public class Cliente extends Usuario {
     }
 
     public void guardarCliente(List<Cliente> listaClientes) {
-        listaClientes.add(this);
+    	 listaClientes.add(this);
     }
 
     public static List<Cliente> obtenerListaClientes() {
         return listaClientes;
     }
 
+    public static Cliente obtenerClientePorRut(int rutCliente) {
+        List<Cliente> listaClientes = obtenerListaClientes(); 
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getRutCliente() == rutCliente) {
+                return cliente;
+            }
+        }
+
+        return null; // Retornar null si no se encuentra el cliente con el rut especificado
+    }
     @Override
     public String toString() {
         return "Cliente {" +

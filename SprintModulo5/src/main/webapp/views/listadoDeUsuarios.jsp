@@ -106,9 +106,8 @@
 						<td><%=cliente.getRutCliente()%></td>
 						<td><%=cliente.getNombres()%></td>
 						<td><%=cliente.getApellidos()%></td>
-						<td><a href="EditarClienteServlet" class="btn btn-primary">Editar Cliente</a></td>
-			
-					</tr>
+						<td><a href="EditarClienteServlet?rutCliente=<%=cliente.getRutCliente()%>" class="btn btn-primary">Editar Cliente</a></td>
+
 					<%
 					}
 					%>
@@ -195,9 +194,7 @@
 			<div class="col">
 				<a href="AgregarProfesionalServlet" class="btn btn-primary">Editar Profesional</a>
 				</div>
-			<div class="col">
-				<a href="EditarClienteServlet" class="btn btn-primary">Editar Cliente</a>
-			</div>
+			
 		</div>
 	</div>
 
