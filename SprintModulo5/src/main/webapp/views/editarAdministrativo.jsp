@@ -23,14 +23,7 @@
             %>
             <input type="hidden" name="rutAdministrativo" value="<%=administrativo.getRun()%>">
 
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombres" value="<%=administrativo.getNombre()%>" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="text" name="fechaNacimiento" value="<%=administrativo.getFechaNacimiento()%>" class="form-control">
-            </div>
+           
             <div class="form-group">
                 <label for="area">Área:</label>
                 <input type="text" name="area" value="<%=administrativo.getArea()%>" class="form-control">

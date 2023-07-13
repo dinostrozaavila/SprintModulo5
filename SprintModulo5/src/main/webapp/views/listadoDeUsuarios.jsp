@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="sprintmodulo5.modelo.Usuario"%>
 <%@ page import="sprintmodulo5.modelo.Cliente"%>
 <%@ page import="sprintmodulo5.modelo.Profesional"%>
@@ -143,7 +143,7 @@
 					<tr>
 						<td><%=administrativo.getArea()%></td>
 						<td><%=administrativo.getExperienciaPrevia()%></td>
-						<td><a href="EditarAdministrativoServlet" class="btn btn-primary">Editar Administrativo</a>
+						<td><a href="EditarAdministrativoServlet?rut=<%=administrativo.getRun()%>"  class="btn btn-primary">Editar Administrativo</a>
 								</tr>
 					<%
 					}

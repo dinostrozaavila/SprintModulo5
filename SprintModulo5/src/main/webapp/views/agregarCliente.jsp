@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- Declaración de la página JSP con configuración de tipo de contenido y codificación -->
 
 <!DOCTYPE html>

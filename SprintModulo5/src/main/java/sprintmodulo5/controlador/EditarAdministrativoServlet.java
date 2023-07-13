@@ -30,7 +30,7 @@ public class EditarAdministrativoServlet extends HttpServlet {
         }
 
         // Obtener el ID del administrativo a editar desde la URL
-        int rutAdministrativo = Integer.parseInt(request.getParameter("rutAdministrativo"));
+        int rutAdministrativo = Integer.parseInt(request.getParameter("rut"));
 
         // Obtener el administrativo de la lista de usuarios por su ID
         Administrativo administrativo = Administrativo.obtenerAdministrativoPorRut(rutAdministrativo);
@@ -53,8 +53,6 @@ public class EditarAdministrativoServlet extends HttpServlet {
 
         // Obtener los parámetros del formulario
         int rutAdministrativo = Integer.parseInt(request.getParameter("rutAdministrativo"));
-        String nombre = request.getParameter("nombres");
-        String fechaNacimiento = request.getParameter("fechaNacimiento");
         String area = request.getParameter("area");
         String experienciaPrevia = request.getParameter("experienciaPrevia");
 
@@ -62,8 +60,6 @@ public class EditarAdministrativoServlet extends HttpServlet {
         Administrativo administrativo = Administrativo.obtenerAdministrativoPorRut(rutAdministrativo);
 
         // Actualizar los valores del administrativo
-        administrativo.setNombre(nombre);
-        administrativo.setFechaNacimiento(fechaNacimiento);
         administrativo.setArea(area);
         administrativo.setExperienciaPrevia(experienciaPrevia);
 
