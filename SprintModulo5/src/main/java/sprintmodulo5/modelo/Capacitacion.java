@@ -1,6 +1,8 @@
 package sprintmodulo5.modelo;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Capacitacion {
 	private int identificador; // Identificador de la capacitación
@@ -10,6 +12,9 @@ public class Capacitacion {
 	private String lugar; // Lugar de la capacitación
 	private String duracion; // Duración de la capacitación
 	private int cantidad; // Cantidad de asistentes
+
+	// Lista para almacenar las capacitaciones
+	private static List<Capacitacion> listaCapacitaciones = new ArrayList<>();
 
 	// Constructor vacío
 	public Capacitacion() {
@@ -34,8 +39,10 @@ public class Capacitacion {
 
 	public void setIdentificador(int identificador) {
 		this.identificador = identificador;
-		if (identificador <= 0) {
-			throw new IllegalArgumentException("El identificador debe ser un número entero positivo.");
+		if (identificador > 0) {
+			this.identificador = identificador;
+		} else {
+			throw new IllegalArgumentException("El identificador debe ser un número entero válido.");
 		}
 	}
 
@@ -46,8 +53,10 @@ public class Capacitacion {
 
 	public void setRutCliente(int rutCliente) {
 		this.rutCliente = rutCliente;
-		if (rutCliente <= 0 || rutCliente >= 99999999) {
-			throw new IllegalArgumentException("El RUT del cliente debe ser un entero menor a 99999999.");
+		if (rutCliente > 0 && rutCliente < 99999999) {
+			this.rutCliente = rutCliente;
+		} else {
+			throw new IllegalArgumentException("El RUT del cliente debe ser un entero menor a 99999999");
 		}
 	}
 
@@ -57,10 +66,11 @@ public class Capacitacion {
 	}
 
 	public void setDia(String dia) {
-		if (!isValidDia(dia)) {
+		if (isValidDia(dia)) {
+			this.dia = dia;
+		} else {
 			throw new IllegalArgumentException("Día inválido. Debe ser un día entre lunes y domingo.");
 		}
-		this.dia = dia;
 	}
 
 	/**
@@ -94,10 +104,11 @@ public class Capacitacion {
 	}
 
 	public void setLugar(String lugar) {
-		if (lugar == null || lugar.isEmpty() || lugar.length() < 10 || lugar.length() > 50) {
-			throw new IllegalArgumentException("Lugar debe tener, mínimo 10 caracteres, máximo 50.");
+		if (lugar != null && !lugar.isEmpty() && lugar.length() >= 10 && lugar.length() <= 50) {
+			this.lugar = lugar;
+		} else {
+			throw new IllegalArgumentException("Lugar debe tener, mínimo 10 caracteres, máximo 50");
 		}
-		this.lugar = lugar;
 	}
 
 	// Getter y Setter para la duración de la capacitación
@@ -106,10 +117,11 @@ public class Capacitacion {
 	}
 
 	public void setDuracion(String duracion) {
-		if (duracion == null || duracion.isEmpty() || duracion.length() > 70) {
-			throw new IllegalArgumentException("Duración debe tener un máximo de 70 caracteres.");
+		if (duracion != null && !duracion.isEmpty() && duracion.length() <= 70) {
+			this.duracion = duracion;
+		} else {
+			throw new IllegalArgumentException("Duracion debe tener un maximo de 70 caracteres");
 		}
-		this.duracion = duracion;
 	}
 
 	// Getter y Setter para la cantidad de asistentes
@@ -118,17 +130,30 @@ public class Capacitacion {
 	}
 
 	public void setCantidad(int cantidad) {
-		if (cantidad <= 0 || cantidad > 1000) {
-			throw new IllegalArgumentException("Máximo 1000 asistentes.");
+		if (cantidad > 0 && cantidad <= 1000) {
+			this.cantidad = cantidad;
+		} else {
+			throw new IllegalArgumentException("Maximo 1000 asistentes");
 		}
-		this.cantidad = cantidad;
 	}
 
-	// Método toString para representar la información de la capacitación como una cadena de texto
+	// Método para guardar una instancia de Capacitacion en la lista
+	public void guardarCapacitacion(List<Capacitacion> listaCapacitaciones) {
+		listaCapacitaciones.add(this);
+	}
+
+	// Método estático para obtener la lista de capacitaciones
+	public static List<Capacitacion> obtenerListaCapacitaciones() {
+		return listaCapacitaciones;
+	}
+
+	// Método toString para representar la información de la capacitación como una
+	// cadena de texto
 	@Override
 	public String toString() {
-		return "Capacitacion [identificador=" + identificador + ", rutCliente=" + rutCliente + ", dia=" + dia + ", hora="
-				+ hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidad=" + cantidad + "]";
+		return "Capacitacion [identificador=" + identificador + ", rutCliente=" + rutCliente + ", dia=" + dia
+				+ ", hora=" + hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidad=" + cantidad + "]";
 	}
 }
+
 

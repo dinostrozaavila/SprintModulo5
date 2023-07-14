@@ -6,96 +6,103 @@
 <!-- Etiqueta html con el atributo lang establecido en "es" para el idioma español -->
 
 <head>
-    <meta charset="UTF-8">
-    <title>Crear Capacitación</title>
-    <!-- Título de la página -->
+<meta charset="UTF-8">
+<title>Crear Capacitación</title>
+<!-- Título de la página -->
 
-    <link rel="stylesheet" href="views/styles.css">
-    <!-- Enlace al archivo CSS para los estilos personalizados -->
-    <!-- Enlace al archivo CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="views/styles.css">
+<!-- Enlace al archivo CSS para los estilos personalizados -->
+<!-- Enlace al archivo CSS de Bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
-    <%@ include file="/views/navbar.jsp" %>
+	<%@ include file="/views/navbar.jsp"%>
 
-    <div class="h1-container">
-        <h1>Crear Capacitación</h1>
-    </div>
-    <!-- Contenedor del encabezado principal con el título "Crear Capacitación" -->
+	<div class="h1-container">
+		<h1>Crear Capacitación</h1>
+	</div>
+	<!-- Contenedor del encabezado principal con el título "Crear Capacitación" -->
 
-    <div class="container">
-        <!-- Contenedor principal -->
+	<div class="container">
+		<!-- Contenedor principal -->
 
-        <form action="ProcesarCapacitacionServlet" method="POST">
-            <!-- Formulario con acción "ProcesarCapacitacionServlet" y método "POST" -->
+		<form action="CrearCapacitacionServlet" method="POST">
+			<!-- Formulario con acción "CrearCapacitacionServlet" y método "POST" -->
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="identificador">Identificador:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="identificador" name="identificador" class="form-control" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="identificador">Identificador:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="identificador" name="identificador"
+						class="form-control" required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="rutCliente">RUT del Cliente:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="rutCliente" name="rutCliente" class="form-control" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="rutCliente">RUT del Cliente:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="rutCliente" name="rutCliente"
+						class="form-control" required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="dia">Día de la Capacitación:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="dia" name="dia" class="form-control" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="dia">Día de la Capacitación:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="dia" name="dia" class="form-control"
+						required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="hora">Hora de la Capacitación:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="hora" name="hora" class="form-control" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="hora">Hora de la Capacitación:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="hora" name="hora" class="form-control"
+						required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="lugar">Lugar de la Capacitación:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="lugar" name="lugar" class="form-control" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="lugar">Lugar de la Capacitación:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="lugar" name="lugar" class="form-control"
+						required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="duracion">Duración de la Capacitación:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="duracion" name="duracion" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="duracion">Duración de la Capacitación:</label>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" id="duracion" name="duracion" required>
+				</div>
+			</div>
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="cantidad">Cantidad de Asistentes:</label>
-                </div>
-                <div class="form-group col-md-2">
-                    <input type="text" id="cantidad" name="cantidad" required>
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="cantidad">Cantidad de Asistentes:</label>
+				</div>
+				<div class="form-group col-md-2">
+					<input type="text" id="cantidad" name="cantidad" required>
+				</div>
+			</div>
 
-            <button type="submit" class="btn btn-primary">Agregar</button>
-            <!-- Botón de envío del formulario -->
-        </form>
+			<button type="submit" class="btn btn-primary">Agregar</button>
+			<!-- Botón de envío del formulario -->
+		</form>
+	</div>
 
         <%-- Verificar si se debe mostrar el mensaje de confirmación --%>
         <% if (request.getAttribute("guardadoExitoso") != null) { %>
@@ -103,20 +110,21 @@
                 ¡La capacitación se ha creado exitosamente!
             </div>
         <% } %>
-    </div>
 
-    <%@ include file="/views/footer.jsp" %>
-    <!-- Inclusión del archivo JSP que contiene el footer -->
+	<!-- Script para mostrar una ventana emergente si se ha guardado exitosamente -->
 
-    <!-- Agregar el enlace al archivo JS de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<%@ include file="/views/footer.jsp"%>
+	<!-- Inclusión del archivo JSP que contiene el footer -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Inclusión de jQuery -->
+	<!-- Agregar el enlace al archivo JS de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
+
 
 
 
