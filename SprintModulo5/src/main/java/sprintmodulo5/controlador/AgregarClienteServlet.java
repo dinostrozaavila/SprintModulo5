@@ -48,7 +48,10 @@ public class AgregarClienteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		/// Para aceptar caracteres especiales
+		request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
 		// Obtener los parámetros del formulario
 		int rutCliente = Integer.parseInt(request.getParameter("rutCliente"));

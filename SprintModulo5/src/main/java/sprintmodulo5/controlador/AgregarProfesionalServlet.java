@@ -45,7 +45,11 @@ public class AgregarProfesionalServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		// Para aceptar caracteres especiales
+				request.setCharacterEncoding("UTF-8");
+		        response.setCharacterEncoding("UTF-8");
+		
 		// Obtener los parámetros del formulario
 		String titulo = request.getParameter("titulo");
 		String fechaIngreso = request.getParameter("fechaIngreso");
