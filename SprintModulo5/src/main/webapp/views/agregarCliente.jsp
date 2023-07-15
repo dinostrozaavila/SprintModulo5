@@ -51,7 +51,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="sistemaSalud">Sistema de Salud (1 para Fonasa, 2 para Isapre):</label>
+                    <label for="sistemaSalud">Sistema de Salud :</label>
                 </div>
                 <div class="form-group col-md-4">
                     <select id="sistemaSalud" name="sistemaSalud" class="form-control" required>

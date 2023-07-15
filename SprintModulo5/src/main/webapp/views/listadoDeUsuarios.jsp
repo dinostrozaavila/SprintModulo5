@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="sprintmodulo5.modelo.Usuario"%>
 <%@ page import="sprintmodulo5.modelo.Cliente"%>
 <%@ page import="sprintmodulo5.modelo.Profesional"%>
@@ -58,7 +59,7 @@
 					</tr>
 					<%
 					}
-								}
+					}
 					%>
 				</tbody>
 			</table>
@@ -104,18 +105,30 @@
 					<tr>
 						<td><%=cliente.getTelefono()%></td>
 						<td><%=cliente.getAfp()%></td>
-						<td><%=cliente.getSistemaSalud()%></td>
+						<td>
+							<%
+							if (cliente.getSistemaSalud() == 1) {
+							%> FONASA <%
+							} else if (cliente.getSistemaSalud() == 2) {
+							%>
+							ISAPRE <%
+							}
+							%>
+						</td>
 						<td><%=cliente.getDireccion()%></td>
 						<td><%=cliente.getComuna()%></td>
 						<td><%=cliente.getEdad()%></td>
 						<td><%=cliente.getRut()%></td>
 						<td><%=cliente.getNombre()%></td>
-						<td><a href="EditarClienteServlet?rutCliente=<%=cliente.getRutCliente()%>" class="btn btn-primary">Editar Cliente</a></td>
+						<td><a
+							href="EditarClienteServlet?rutCliente=<%=cliente.getRutCliente()%>"
+							class="btn btn-primary">Editar Cliente</a></td>
 
-					<%
-					}
-					}
-					%>
+						<%
+						}
+						}
+						%>
+					
 				</tbody>
 			</table>
 		</div>
@@ -148,8 +161,10 @@
 					<tr>
 						<td><%=administrativo.getArea()%></td>
 						<td><%=administrativo.getExperienciaPrevia()%></td>
-						<td><a href="EditarAdministrativoServlet?rut=<%=administrativo.getRut()%>"  class="btn btn-primary">Editar Administrativo</a>
-								</tr>
+						<td><a
+							href="EditarAdministrativoServlet?rut=<%=administrativo.getRut()%>"
+							class="btn btn-primary">Editar Administrativo</a>
+					</tr>
 					<%
 					}
 					%>
@@ -168,8 +183,8 @@
 			<table class="table table-responsive custom-table">
 				<thead>
 					<tr>
-					<th>Rut</th>
-					<th>Nombre</th>
+						<th>Rut</th>
+						<th>Nombre</th>
 						<th>Título</th>
 						<th>Fecha de Ingreso</th>
 						<th>Editar</th>
@@ -189,8 +204,10 @@
 						<td><%=profesional.getNombre()%></td>
 						<td><%=profesional.getTitulo()%></td>
 						<td><%=profesional.getFechaIngreso()%></td>
-										
-						<td><a href="EditarProfesionalServlet?rut=<%=profesional.getRut()%>"  class="btn btn-primary">Editar Profesional</a>
+
+						<td><a
+							href="EditarProfesionalServlet?rut=<%=profesional.getRut()%>"
+							class="btn btn-primary">Editar Profesional</a>
 					</tr>
 					<%
 					}
@@ -201,10 +218,7 @@
 	</div>
 
 	<div class="container">
-		<div class="row">
-			
-						
-		</div>
+		<div class="row"></div>
 	</div>
 
 	<%@ include file="/views/footer.jsp"%>

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- Declaración de la página JSP con configuración de tipo de contenido y codificación -->
 
 <!DOCTYPE html>
@@ -36,8 +37,8 @@
 					<label for="nombre">Nombre de Usuario:</label>
 				</div>
 				<div class="form-group col-md-4">
-					<input type="text" id="nombre" name="nombre"
-						class="form-control" required>
+					<input type="text" id="nombre" name="nombre" class="form-control"
+						required>
 				</div>
 			</div>
 
@@ -60,14 +61,18 @@
 						required>
 				</div>
 			</div>
-			
-						<div class="form-row">
+
+			<div class="form-row">
 				<div class="form-group col-md-2">
-					<label for="run">Tipo de Usuario:</label>
+					<label for="Tipo de Usuario">Tipo de Usuario :</label>
 				</div>
 				<div class="form-group col-md-4">
-					<input type="text" id="tipoUsuario" name="tipoUsuario" class="form-control"
+					<select id="tipoUsuario" name="tipoUsuario" class="form-control"
 						required>
+						<option value="Cliente">Cliente</option>
+						<option value="Administrativo">Administrativo</option>
+						<option value="Profesional">Profesional</option>
+					</select>
 				</div>
 			</div>
 
