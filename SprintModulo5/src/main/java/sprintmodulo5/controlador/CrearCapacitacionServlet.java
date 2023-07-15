@@ -1,6 +1,7 @@
 package sprintmodulo5.controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalTime;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sprintmodulo5.DAO.CapacitacionDAO;
 import sprintmodulo5.modelo.Capacitacion;
 
 @WebServlet("/CrearCapacitacionServlet")
@@ -19,6 +21,11 @@ public class CrearCapacitacionServlet extends HttpServlet {
 	public CrearCapacitacionServlet() {
 		super();
 	}
+    private CapacitacionDAO capacitacionDAO;
+
+    public void init() {
+        capacitacionDAO = new CapacitacionDAO();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -52,7 +59,6 @@ public class CrearCapacitacionServlet extends HttpServlet {
 		}
 
 		// Obtener los parámetros del formulario
-		int id = Integer.parseInt(request.getParameter("identificador"));
 		int rutCliente = Integer.parseInt(request.getParameter("rutCliente"));
 		String dia = request.getParameter("dia");
 		LocalTime hora = LocalTime.parse(request.getParameter("hora"));
@@ -62,7 +68,6 @@ public class CrearCapacitacionServlet extends HttpServlet {
 
 		// Crear una instancia de la clase Capacitacion y asignar los valores
 		Capacitacion capacitacion = new Capacitacion();
-		capacitacion.setIdentificador(id);
 		capacitacion.setRutCliente(rutCliente);
 		capacitacion.setDia(dia);
 		capacitacion.setHora(hora);
@@ -71,8 +76,13 @@ public class CrearCapacitacionServlet extends HttpServlet {
 		capacitacion.setCantidad(cantidad);
 
 		// Guardar la instancia de Capacitacion en la lista
-		capacitacion.guardarCapacitacion(Capacitacion.obtenerListaCapacitaciones());
-
+		try {
+            capacitacionDAO.agregarCapacitacion(capacitacion);
+            request.setAttribute("guardadoExitoso", "true");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("guardadoExitoso", "false");
+        }
 		// Simular guardado exitoso
 		boolean guardadoExitoso = true;
 

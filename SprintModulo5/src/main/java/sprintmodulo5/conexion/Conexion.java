@@ -5,33 +5,32 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static Conexion instancia;
-    private Connection conexion;
+    
+   
+        String URL= System.getenv("URL");
+        String USER = System.getenv("DB_USER");
+        String PASS = System.getenv("DB_PASS");
 
-    private Conexion() {
-        String url = "jdbc:mysql://localhost/prevencion_riesgos?useSSL=false";
-        String usuario = "adminp";
-        String contraseña = "12345";
+     // Singleton instance
+        private static Connection connection = null;
 
-        try {
-            // Cargar el driver de MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // Obtener la conexión a la base de datos
-            conexion = DriverManager.getConnection(url, usuario, contraseña);
-            System.out.println("Conexión a la base de datos establecida.");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.err.println("Error al conectar a la base de datos: " + e.getMessage());
+        // Private constructor to restrict instantiation
+        private Conexion() {
+          try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection(URL,USER , PASS);
+          } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+          }
         }
-    }
 
-    public static Conexion obtenerInstancia() {
-        if (instancia == null) {
-            instancia = new Conexion();
+        // Getter for the singleton instance
+        public static Connection getConnection() {
+          if (connection == null) {
+            new Conexion();
+          }
+          return connection;
         }
-        return instancia;
-    }
-
-    public Connection obtenerConexion() {
-        return conexion;
-    }
+        
+   
 }

@@ -1,6 +1,8 @@
 package sprintmodulo5.controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sprintmodulo5.DAO.CapacitacionDAO;
 import sprintmodulo5.modelo.Capacitacion;
 
 @WebServlet("/ListarCapacitacionesServlet")
@@ -20,6 +23,11 @@ public class ListarCapacitacionesServlet extends HttpServlet {
 		super();
 	}
 
+	 private CapacitacionDAO capacitacionDAO;
+
+	    public void init() {
+	        capacitacionDAO = new CapacitacionDAO();
+	    }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Verificar si el usuario ha iniciado sesión
@@ -32,7 +40,13 @@ public class ListarCapacitacionesServlet extends HttpServlet {
 		}
 
 		// Obtener la lista de capacitaciones
-		List<Capacitacion> listaCapacitaciones = Capacitacion.obtenerListaCapacitaciones();
+		List<Capacitacion> listaCapacitaciones = new ArrayList<Capacitacion>();
+		try {
+			listaCapacitaciones = capacitacionDAO.obtenerCapacitaciones();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// Guardar la lista en un atributo de la solicitud
 		request.setAttribute("listaCapacitaciones", listaCapacitaciones);

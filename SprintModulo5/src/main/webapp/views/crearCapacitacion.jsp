@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- Declaración de la página JSP con configuración de tipo de contenido y codificación -->
 
 <!DOCTYPE html>
@@ -28,19 +28,10 @@
 	<div class="container">
 		<!-- Contenedor principal -->
 
-		<form action="CrearCapacitacionServlet" method="POST">
+		<form accept-charset="UTF-8" action="CrearCapacitacionServlet" method="POST">
 			<!-- Formulario con acción "CrearCapacitacionServlet" y método "POST" -->
 
-			<div class="form-row">
-				<div class="form-group col-md-2">
-					<label for="identificador">Identificador:</label>
-				</div>
-				<div class="form-group col-md-4">
-					<input type="text" id="identificador" name="identificador"
-						class="form-control" required>
-				</div>
-			</div>
-
+			
 			<div class="form-row">
 				<div class="form-group col-md-2">
 					<label for="rutCliente">RUT del Cliente:</label>
