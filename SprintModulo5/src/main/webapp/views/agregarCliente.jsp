@@ -30,33 +30,7 @@
         <form action="AgregarClienteServlet" method="POST">
             <!-- Formulario con acción "AgregarClienteServlet" y método "POST" -->
 
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="rutCliente">RUT:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="rutCliente" name="rutCliente" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="nombres">Nombres:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="nombres" name="nombres" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="apellidos">Apellidos:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="text" id="apellidos" name="apellidos" class="form-control" required>
-                </div>
-            </div>
-
+            
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="telefono">Teléfono:</label>

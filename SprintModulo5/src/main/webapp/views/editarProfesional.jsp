@@ -21,7 +21,7 @@
             <%
             Profesional profesional = (Profesional) request.getAttribute("profesional");
             %>
-            <input type="hidden" name="rutProfesional" value="<%=profesional.getRun()%>">
+            <input type="hidden" name="rutProfesional" value="<%=profesional.getRut()%>">
 
             <div class="form-group">
                 <label for="titulo">Título:</label>

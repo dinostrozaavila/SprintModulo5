@@ -16,7 +16,7 @@ public class CapacitacionDAO {
     public CapacitacionDAO() {
         connection = Conexion.getConnection();
     }
-
+    // Agrega un registro de capacitacion a la base de datos
     public void agregarCapacitacion(Capacitacion capacitacion) throws SQLException {
         String sql = "INSERT INTO capacitaciones (rutCliente, dia, hora, lugar, duracion, cantidad) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -30,6 +30,8 @@ public class CapacitacionDAO {
         statement.executeUpdate();
     }
     
+   // Obtiene todas las capacitaciones de la base de datos y las devuelve en una lista
+
     public List<Capacitacion> obtenerCapacitaciones() throws SQLException {
         List<Capacitacion> capacitaciones = new ArrayList<>();
         String query = "SELECT * FROM capacitaciones";

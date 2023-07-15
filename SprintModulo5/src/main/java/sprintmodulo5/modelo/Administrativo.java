@@ -107,7 +107,7 @@ public class Administrativo extends Usuario {
 	 */
 	public static Administrativo obtenerAdministrativoPorRut(int run) {
 		for (Administrativo administrativo : listaAdministrativos) {
-			if (administrativo.getRun() == run) {
+			if (administrativo.getRut() == run) {
 				return administrativo;
 			}
 		}
@@ -126,7 +126,7 @@ public class Administrativo extends Usuario {
 				", experienciaPrevia='" + experienciaPrevia + '\'' +
 				", nombre='" + getNombre() + '\'' +
 				", fechaNacimiento='" + getFechaNacimiento() + '\'' +
-				", run=" + getRun() +
+				", run=" + getRut() +
 				", tipoUsuario='" + getTipoUsuario() + '\'' +
 				'}';
 	}

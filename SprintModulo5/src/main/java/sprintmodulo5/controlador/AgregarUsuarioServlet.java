@@ -65,8 +65,11 @@ public class AgregarUsuarioServlet extends HttpServlet {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setFechaNacimiento(fechaNacimiento);
-        usuario.setRun(run);
+        usuario.setRut(run);
         usuario.setTipoUsuario(tipoUsuario);
+        
+        // Almacenamos la sesión de usuario
+        session.setAttribute("usuario", usuario);
 
 		// Guardar la instancia de Usuario en la lista
 		usuario.guardarUsuario(Usuario.obtenerListaUsuarios());

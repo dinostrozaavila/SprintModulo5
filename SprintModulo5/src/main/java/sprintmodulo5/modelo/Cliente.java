@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Cliente extends Usuario {
 
+	private int idCliente;
     private String telefono;
     private String afp;
     private int sistemaSalud;
@@ -14,6 +15,8 @@ public class Cliente extends Usuario {
     private int rutCliente;
     private String nombres;
     private String apellidos;
+    
+    
 
     private static List<Cliente> listaClientes = new ArrayList<>();
 
@@ -21,19 +24,16 @@ public class Cliente extends Usuario {
         super();
     }
 
-    public Cliente(String nombre, String fechaNacimiento, int run, String tipoUsuario,
-                   int rutCliente, String nombres, String apellidos,
-                   String telefono, String afp, int sistemaSalud, String direccion, String comuna, int edad) {
-        super(nombre, fechaNacimiento, run, tipoUsuario);
-        this.rutCliente = rutCliente;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+    public Cliente(int rut,String nombre , String fechaNacimiento, String tipoUsuario,
+                    String telefono, String afp, int sistemaSalud, String direccion, String comuna, int edad) {
+        super(nombre, fechaNacimiento, rut, tipoUsuario);
         this.telefono = telefono;
         this.afp = afp;
         this.sistemaSalud = sistemaSalud;
         this.direccion = direccion;
         this.comuna = comuna;
         this.edad = edad;
+       
     }
 
     public String getTelefono() {
@@ -60,14 +60,8 @@ public class Cliente extends Usuario {
         }
     }
 
-    public String obtenerSistemaSalud() {
-        if (sistemaSalud == 1) {
-            return "Fonasa";
-        } else if (sistemaSalud == 2) {
-            return "Isapre";
-        } else {
-            return "Desconocido";
-        }
+    public int getSistemaSalud() {
+    	return sistemaSalud;
     }
 
     public void setSistemaSalud(int sistemaSalud) {
@@ -184,7 +178,7 @@ public class Cliente extends Usuario {
         return "Cliente {" +
                 "nombre='" + getNombre() + '\'' +
                 ", fechaNacimiento='" + getFechaNacimiento() + '\'' +
-                ", run=" + getRun() +
+                ", run=" + getRut() +
                 ", tipoUsuario='" + getTipoUsuario() + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", afp='" + afp + '\'' +
@@ -197,4 +191,14 @@ public class Cliente extends Usuario {
                 ", apellidos='" + apellidos + '\'' +
                 '}';
     }
+
+	public int getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	
 }

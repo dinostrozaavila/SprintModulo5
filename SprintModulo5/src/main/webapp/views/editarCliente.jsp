@@ -37,9 +37,9 @@
 				<label for="sistemaSalud">Sistema de Salud:</label> <select
 					id="sistemaSalud" name="sistemaSalud" class="form-control" required>
 					<option value="1"
-						<%=(cliente.obtenerSistemaSalud().equals("Fonasa")) ? "selected" : ""%>>Fonasa</option>
+						<%=(cliente.getSistemaSalud().equals("Fonasa")) ? "selected" : ""%>>Fonasa</option>
 					<option value="2"
-						<%=(cliente.obtenerSistemaSalud().equals("Isapre")) ? "selected" : ""%>>Isapre</option>
+						<%=(cliente.getSistemaSalud().equals("Isapre")) ? "selected" : ""%>>Isapre</option>
 
 				</select>
 

@@ -105,7 +105,7 @@ public class Profesional extends Usuario {
      */
     public static Profesional obtenerProfesionalPorRut(int rut) {
         for (Profesional profesional : listaProfesionales) {
-            if (profesional.getRun() == rut) {
+            if (profesional.getRut() == rut) {
                 return profesional;
             }
         }
@@ -124,7 +124,7 @@ public class Profesional extends Usuario {
                 ", fechaIngreso='" + fechaIngreso + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", fechaNacimiento='" + getFechaNacimiento() + '\'' +
-                ", run=" + getRun() +
+                ", run=" + getRut() +
                 ", tipoUsuario='" + getTipoUsuario() + '\'' +
                 '}';
     }

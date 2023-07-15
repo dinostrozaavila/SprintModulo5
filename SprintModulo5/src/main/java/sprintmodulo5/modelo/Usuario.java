@@ -7,7 +7,7 @@ public class Usuario {
 	
     private String nombre; // Nombre del usuario
     private String fechaNacimiento; // Fecha de nacimiento del usuario
-    private int run; // RUN del usuario
+    private int rut; // RUN del usuario
     private String tipoUsuario; // Tipo de usuario (Cliente, Profesional, Administrativo)
     
 	// Lista para almacenar los usuarios
@@ -21,7 +21,7 @@ public class Usuario {
     public Usuario(String nombre, String fechaNacimiento, int run, String tipoUsuario) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
-        this.run = run;
+        this.rut = run;
         this.tipoUsuario=tipoUsuario;
     }
     
@@ -79,8 +79,8 @@ public class Usuario {
      *
      * @return RUN del usuario.
      */
-    public int getRun() {
-        return run;
+    public int getRut() {
+        return rut;
     }
 
     /**
@@ -89,11 +89,11 @@ public class Usuario {
      * @param run RUN del usuario.
      * @throws IllegalArgumentException Si el RUN es inválido.
      */
-    public void setRun(int run) {
-        if (run >= 99999999) {
-            throw new IllegalArgumentException("El RUN debe ser un número menor a 99.999.999.");
+    public void setRut(int rut) {
+        if (rut >= 99999999) {
+            throw new IllegalArgumentException("El RUT debe ser un número menor a 99.999.999.");
         }
-        this.run = run;
+        this.rut = rut;
     }
     
     /**
@@ -138,7 +138,7 @@ public class Usuario {
         return "Usuario{" +
                 "nombre='" + nombre + '\'' +
                 ", fechaNacimiento=" + fechaNacimiento +
-                ", run=" + run +
+                ", rut=" + rut +
                 ", tipoUsuario='" + tipoUsuario + '\'' +
                 '}';
     }

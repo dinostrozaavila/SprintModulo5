@@ -44,7 +44,7 @@ public class ListarCapacitacionesServlet extends HttpServlet {
 		try {
 			listaCapacitaciones = capacitacionDAO.obtenerCapacitaciones();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 

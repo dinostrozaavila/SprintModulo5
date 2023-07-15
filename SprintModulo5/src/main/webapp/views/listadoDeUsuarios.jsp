@@ -52,13 +52,13 @@
 					<tr>
 						<td><%=usuario.getNombre()%></td>
 						<td><%=usuario.getFechaNacimiento()%></td>
-						<td><%=usuario.getRun()%></td>
+						<td><%=usuario.getRut()%></td>
 						<td><%=usuario.getTipoUsuario()%></td>
 						<td>
 					</tr>
 					<%
 					}
-					}
+								}
 					%>
 				</tbody>
 			</table>
@@ -83,32 +83,37 @@
 						<th>Edad</th>
 						<th>RUT Cliente</th>
 						<th>Nombres</th>
-						<th>Apellidos</th>
 						<th>Editar</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%-- Obtener la lista de clientes del atributo "listaClientes" --%>
 					<%
-					List<Cliente> listaClientes = Cliente.obtenerListaClientes();
+					Object listaCliente = request.getAttribute("listaClientes");
+					Cliente[] clientes = null;
+					if (listaCliente instanceof List<?>) {
+						List<?> lista = (List<?>) listaCliente;
+						clientes = lista.toArray(new Cliente[lista.size()]);
+					}
 					%>
 					<%-- Iterar sobre los clientes y mostrar los datos --%>
 					<%
-					for (Cliente cliente : listaClientes) {
+					if (clientes != null) {
+						for (Cliente cliente : clientes) {
 					%>
 					<tr>
 						<td><%=cliente.getTelefono()%></td>
 						<td><%=cliente.getAfp()%></td>
-						<td><%=cliente.obtenerSistemaSalud()%></td>
+						<td><%=cliente.getSistemaSalud()%></td>
 						<td><%=cliente.getDireccion()%></td>
 						<td><%=cliente.getComuna()%></td>
 						<td><%=cliente.getEdad()%></td>
-						<td><%=cliente.getRutCliente()%></td>
-						<td><%=cliente.getNombres()%></td>
-						<td><%=cliente.getApellidos()%></td>
+						<td><%=cliente.getRut()%></td>
+						<td><%=cliente.getNombre()%></td>
 						<td><a href="EditarClienteServlet?rutCliente=<%=cliente.getRutCliente()%>" class="btn btn-primary">Editar Cliente</a></td>
 
 					<%
+					}
 					}
 					%>
 				</tbody>
@@ -143,7 +148,7 @@
 					<tr>
 						<td><%=administrativo.getArea()%></td>
 						<td><%=administrativo.getExperienciaPrevia()%></td>
-						<td><a href="EditarAdministrativoServlet?rut=<%=administrativo.getRun()%>"  class="btn btn-primary">Editar Administrativo</a>
+						<td><a href="EditarAdministrativoServlet?rut=<%=administrativo.getRut()%>"  class="btn btn-primary">Editar Administrativo</a>
 								</tr>
 					<%
 					}
@@ -180,12 +185,12 @@
 					for (Profesional profesional : listaProfesionales) {
 					%>
 					<tr>
-						<td><%=profesional.getRun()%></td>
+						<td><%=profesional.getRut()%></td>
 						<td><%=profesional.getNombre()%></td>
 						<td><%=profesional.getTitulo()%></td>
 						<td><%=profesional.getFechaIngreso()%></td>
 										
-						<td><a href="EditarProfesionalServlet?rut=<%=profesional.getRun()%>"  class="btn btn-primary">Editar Profesional</a>
+						<td><a href="EditarProfesionalServlet?rut=<%=profesional.getRut()%>"  class="btn btn-primary">Editar Profesional</a>
 					</tr>
 					<%
 					}

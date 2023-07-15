@@ -1,6 +1,8 @@
 package sprintmodulo5.controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sprintmodulo5.DAO.ClienteDAO;
+import sprintmodulo5.modelo.Cliente;
 import sprintmodulo5.modelo.Usuario;
 
 /**
@@ -24,9 +28,13 @@ public class ListadoDeUsuariosServlet extends HttpServlet {
      */
     public ListadoDeUsuariosServlet() {
         super();
-        // TODO Auto-generated constructor stub
+             
     }
+    private ClienteDAO clienteDAO;
 
+    public void init() {
+        clienteDAO = new ClienteDAO();
+    }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -43,10 +51,22 @@ public class ListadoDeUsuariosServlet extends HttpServlet {
 		
 		// Obtener la lista de usuarios
 		List<Usuario> listaUsuarios = Usuario.obtenerListaUsuarios();
+		
+		List<Cliente> listaClientes = new ArrayList<Cliente>();
+		try {
+			listaClientes = clienteDAO.obtenerClientes();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 
 		// Guardar la lista en un atributo de la solicitud
 		request.setAttribute("listaUsuarios", listaUsuarios);
-
+		
+		request.setAttribute("listaClientes", listaClientes);
+		
+				
+	
 		// Llamar al JSP para mostrar la lista de usuarios
 		getServletContext().getRequestDispatcher("/views/listadoDeUsuarios.jsp").forward(request, response);
 	}
