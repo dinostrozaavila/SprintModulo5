@@ -6,7 +6,7 @@ El Proyecto tiene como objetivo ofrecer un sistema de prevención de riesgos que
 
 ## **DESPLIEGUE DEL PROYECTO EN SERVIDOR LOCAL** :arrow_forward:
 
-[VER DESPLIEGUE DEL PROYECTO EN SERVIDOR LOCAL](doc/proyectoServidorLocal.pdf)
+[VER DESPLIEGUE DEL PROYECTO EN SERVIDOR LOCAL](DespliegueProyectoGit.pdf)
 
 
 ## **CONSIDERACIONES TÉCNICAS**
