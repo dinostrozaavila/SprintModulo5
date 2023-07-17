@@ -4,37 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Administrativo extends Usuario {
-	
+
+	private int idAdministrativo;
 	private String area; // Área del administrativo
 	private String experienciaPrevia; // Experiencia previa del administrativo
-	
+
 	// Lista para almacenar los administrativos
 	private static List<Administrativo> listaAdministrativos = new ArrayList<>();
-	
+
 	/**
 	 * Constructor vacío de la clase Administrativo.
 	 */
 	public Administrativo() {
 		super();
 	}
-	
+
 	/**
 	 * Constructor de la clase Administrativo que recibe todos los atributos.
 	 *
 	 * @param nombre            Nombre del administrativo.
 	 * @param fechaNacimiento   Fecha de nacimiento del administrativo.
 	 * @param run               RUN del administrativo.
-	 * @param tipoUsuario       Tipo de usuario (Cliente, Profesional, Administrativo).
+	 * @param tipoUsuario       Tipo de usuario (Cliente, Profesional,
+	 *                          Administrativo).
 	 * @param area              Área del administrativo.
 	 * @param experienciaPrevia Experiencia previa del administrativo.
 	 */
-	public Administrativo(String nombre, String fechaNacimiento, int run, String tipoUsuario,
-			String area, String experienciaPrevia) {
-		super(nombre, fechaNacimiento, run, tipoUsuario);
+	public Administrativo(int rut, String nombre, String fechaNacimiento, String tipoUsuario, String area,
+			String experienciaPrevia) {
+		super(nombre, fechaNacimiento, rut, tipoUsuario);
 		this.area = area;
 		this.experienciaPrevia = experienciaPrevia;
 	}
-	
+
 	/**
 	 * Obtiene el área del administrativo.
 	 *
@@ -71,7 +73,8 @@ public class Administrativo extends Usuario {
 	 * Establece la experiencia previa del administrativo.
 	 *
 	 * @param experienciaPrevia Experiencia previa del administrativo.
-	 * @throws IllegalArgumentException Si la experiencia previa excede el límite de caracteres.
+	 * @throws IllegalArgumentException Si la experiencia previa excede el límite de
+	 *                                  caracteres.
 	 */
 	public void setExperienciaPrevia(String experienciaPrevia) {
 		if (experienciaPrevia != null && experienciaPrevia.length() <= 100) {
@@ -80,7 +83,7 @@ public class Administrativo extends Usuario {
 			throw new IllegalArgumentException("Solo se puede escribir un máximo de 100 caracteres.");
 		}
 	}
-	
+
 	/**
 	 * Agrega un administrativo a la lista de administrativos.
 	 *
@@ -89,7 +92,7 @@ public class Administrativo extends Usuario {
 	public void guardarAdministrativo(List<Administrativo> listaAdministrativos) {
 		listaAdministrativos.add(this);
 	}
-	
+
 	/**
 	 * Obtiene la lista de administrativos.
 	 *
@@ -98,36 +101,42 @@ public class Administrativo extends Usuario {
 	public static List<Administrativo> obtenerListaAdministrativos() {
 		return listaAdministrativos;
 	}
-	
+
 	/**
 	 * Obtiene un administrativo de la lista por su RUN.
 	 *
 	 * @param run RUN del administrativo a buscar.
-	 * @return Administrativo correspondiente al RUN especificado, o null si no se encuentra.
+	 * @return Administrativo correspondiente al RUN especificado, o null si no se
+	 *         encuentra.
 	 */
-	public static Administrativo obtenerAdministrativoPorRut(int run) {
+	public static Administrativo obtenerAdministrativoPorRut(int rut) {
 		for (Administrativo administrativo : listaAdministrativos) {
-			if (administrativo.getRut() == run) {
+			if (administrativo.getRut() == rut) {
 				return administrativo;
 			}
 		}
 		return null; // Retornar null si no se encuentra el administrativo con el RUN especificado
 	}
-	
+
 	/**
-	 * Devuelve una representación en forma de cadena de la instancia de Administrativo.
+	 * Devuelve una representación en forma de cadena de la instancia de
+	 * Administrativo.
 	 *
 	 * @return Representación en forma de cadena de la instancia de Administrativo.
 	 */
 	@Override
 	public String toString() {
-		return "Administrativo{" +
-				"area='" + area + '\'' +
-				", experienciaPrevia='" + experienciaPrevia + '\'' +
-				", nombre='" + getNombre() + '\'' +
-				", fechaNacimiento='" + getFechaNacimiento() + '\'' +
-				", run=" + getRut() +
-				", tipoUsuario='" + getTipoUsuario() + '\'' +
-				'}';
+		return "Administrativo{" + "area='" + area + '\'' + ", experienciaPrevia='" + experienciaPrevia + '\''
+				+ ", nombre='" + getNombre() + '\'' + ", fechaNacimiento='" + getFechaNacimiento() + '\'' + ", run="
+				+ getRut() + ", tipoUsuario='" + getTipoUsuario() + '\'' + '}';
 	}
+
+	public int getIdAdministrativo() {
+		return idAdministrativo;
+	}
+
+	public void setIdAdministrativo(int idAdministrativo) {
+		this.idAdministrativo = idAdministrativo;
+	}
+
 }

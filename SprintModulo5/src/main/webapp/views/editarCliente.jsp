@@ -16,13 +16,12 @@
 	</div>
 
 	<div class="container">
-		<form action="EditarClienteServlet" method="post">
+		<form action="EditarClienteServlet" method="POST">
 			<%-- Obtener el cliente a editar del atributo "cliente" --%>
 			<%
 			Cliente cliente = (Cliente) request.getAttribute("cliente");
 			%>
-			<input type="hidden" name="rutCliente"
-				value="<%=cliente.getRutCliente()%>">
+			<input type="hidden" name="id" value="<%=cliente.getIdCliente()%>">
 
 			<div class="form-group">
 				<label for="telefono">Teléfono:</label> <input type="text"
@@ -33,18 +32,16 @@
 				<label for="afp">AFP:</label> <input type="text" name="afp"
 					value="<%=cliente.getAfp()%>" class="form-control">
 			</div>
-			<div class="form-group col-md-4">
+			<div class="form-group">
 				<label for="sistemaSalud">Sistema de Salud:</label> <select
 					id="sistemaSalud" name="sistemaSalud" class="form-control" required>
 					<option value="1"
-						<%=(cliente.getSistemaSalud().equals("Fonasa")) ? "selected" : ""%>>Fonasa</option>
+						<%=String.valueOf(cliente.getSistemaSalud()).equals("1") ? "selected" : ""%>>Fonasa</option>
 					<option value="2"
-						<%=(cliente.getSistemaSalud().equals("Isapre")) ? "selected" : ""%>>Isapre</option>
-
+						<%=String.valueOf(cliente.getSistemaSalud()).equals("2") ? "selected" : ""%>>Isapre</option>
 				</select>
-
-
 			</div>
+
 			<div class="form-group">
 				<label for="direccion">Dirección:</label> <input type="text"
 					name="direccion" value="<%=cliente.getDireccion()%>"
@@ -58,27 +55,20 @@
 				<label for="edad">Edad:</label> <input type="text" name="edad"
 					value="<%=cliente.getEdad()%>" class="form-control">
 			</div>
-			<div class="form-group">
-				<label for="nombres">Nombres:</label> <input type="text"
-					name="nombres" value="<%=cliente.getNombres()%>"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="apellidos">Apellidos:</label> <input type="text"
-					name="apellidos" value="<%=cliente.getApellidos()%>"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="fechaNacimiento">Fecha de Nacimiento:</label> <input
-					type="text" name="fechaNacimiento"
-					value="<%=cliente.getFechaNacimiento()%>" class="form-control">
-			</div>
 
-			<input type="submit" value="Guardar" name="rutCliente"
-				value="<%=cliente.getRutCliente()%>" class="btn btn-primary">
+			<input type="submit" value="Guardar" class="btn btn-primary">
 
 		</form>
 	</div>
+	<%
+	if ("true".equals(request.getAttribute("mostrarVentanaEmergente"))) {
+	%>
+	<script>
+		alert("Guardado exitoso");
+	</script>
+	<%
+	}
+	%>
 
 	<%@ include file="/views/footer.jsp"%>
 

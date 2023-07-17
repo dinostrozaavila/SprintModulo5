@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sprintmodulo5.DAO.AdministrativoDAO;
 import sprintmodulo5.DAO.ClienteDAO;
+import sprintmodulo5.DAO.ProfesionalDAO;
+import sprintmodulo5.modelo.Administrativo;
 import sprintmodulo5.modelo.Cliente;
+import sprintmodulo5.modelo.Profesional;
 import sprintmodulo5.modelo.Usuario;
 
 /**
@@ -31,9 +35,13 @@ public class ListadoDeUsuariosServlet extends HttpServlet {
              
     }
     private ClienteDAO clienteDAO;
+    private AdministrativoDAO administrativoDAO;
+    private ProfesionalDAO profesionalDAO;
 
     public void init() {
         clienteDAO = new ClienteDAO();
+        administrativoDAO = new AdministrativoDAO();
+        profesionalDAO = new ProfesionalDAO();
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -59,11 +67,31 @@ public class ListadoDeUsuariosServlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}
+		
+		List<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
+		try {
+			listaAdministrativos = administrativoDAO.obtenerAdministrativos();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		List<Profesional> listaProfesionales = new ArrayList<Profesional>();
+		try {
+			listaProfesionales = profesionalDAO.obtenerProfesionales();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 
 		// Guardar la lista en un atributo de la solicitud
 		request.setAttribute("listaUsuarios", listaUsuarios);
 		
 		request.setAttribute("listaClientes", listaClientes);
+		
+		request.setAttribute("listaAdministrativos", listaAdministrativos);
+		
+		request.setAttribute("listaProfesionales", listaProfesionales);
 		
 				
 	
@@ -90,3 +118,5 @@ public class ListadoDeUsuariosServlet extends HttpServlet {
 	}
 
 }
+
+

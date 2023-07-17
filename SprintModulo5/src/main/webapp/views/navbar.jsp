@@ -59,9 +59,20 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item"
 							href="${pageContext.request.contextPath}/AgregarUsuarioServlet">Agregar
-							Usuario</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/ListadoDeUsuariosServlet">Listado de Usuarios</a>
+							Usuario</a> <a class="dropdown-item dropdown-toggle" href="#"
+							id="listarUsuariosDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">Listar Usuarios</a>
+						<div class="dropdown-menu"
+							aria-labelledby="listarUsuariosDropdown">
+							<a class="dropdown-item"
+								href="${pageContext.request.contextPath}/ListarProfesionalesServlet">Profesional</a>
+							<a class="dropdown-item"
+								href="${pageContext.request.contextPath}/ListarClientesServlet">Cliente</a>
+							<a class="dropdown-item"
+								href="${pageContext.request.contextPath}/ListarAdministrativosServlet">Administrativo</a>
+						</div>
 					</div></li>
+
 			</ul>
 		</div>
 	</nav>

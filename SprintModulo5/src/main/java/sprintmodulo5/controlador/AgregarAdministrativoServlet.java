@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import sprintmodulo5.DAO.AdministrativoDAO;
 import sprintmodulo5.modelo.Administrativo;
+import sprintmodulo5.modelo.Usuario;
 
 /**
  * Servlet implementation class AgregarAdministrativoServlet
@@ -30,7 +33,13 @@ public class AgregarAdministrativoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Recupera el Usuario de la sesión HTTP
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+        // Pasa el Usuario al JSP
+        request.setAttribute("usuario", usuario);
+		
 		// Verificar si se ha guardado correctamente y mostrar ventana emergente en caso
 		// afirmativo
 		boolean guardadoExitoso = Boolean.parseBoolean((String) request.getAttribute("guardadoExitoso"));
@@ -45,34 +54,34 @@ public class AgregarAdministrativoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Para aceptar caracteres especiales
+		/// Para aceptar caracteres especiales
 		request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
         
 		// Obtener los parámetros del formulario
+        
 		String area = request.getParameter("area");
 		String experienciaPrevia = request.getParameter("experienciaPrevia");
 
-		// Crear una instancia de la clase Administrativo y asignar los valores
-		Administrativo administrativo = new Administrativo();
-		administrativo.setArea(area);
-		administrativo.setExperienciaPrevia(experienciaPrevia);
-
-
-		// Guardar la instancia de Administrativo en la lista
-		administrativo.guardarAdministrativo(Administrativo.obtenerListaAdministrativos());
-
-		// Simular guardado exitoso
-		boolean guardadoExitoso = true;
-
-		// Guardar el resultado en un atributo de la solicitud
-		request.setAttribute("guardadoExitoso", String.valueOf(guardadoExitoso));
+		// Crear una instancia de la clase Cliente y asignar los valores
+		Administrativo administrativo = new Administrativo(usuario.getRut(), usuario.getNombre(), usuario.getFechaNacimiento(), usuario.getTipoUsuario(), area, experienciaPrevia);
 		
-		// Redirigir al servlet "InicioServlet"
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/InicioServlet");
-		dispatcher.forward(request, response);
+		// Se guardan los datos de cliente
+		AdministrativoDAO administrativoDao = new AdministrativoDAO();
 
-		// Redirigir al método doGet para mostrar la ventana emergente
-		doGet(request, response);
+		try {
+            administrativoDao.guardarAdministrativo(administrativo);
+            boolean guardadoExitoso = true;
+            request.setAttribute("guardadoExitoso", String.valueOf(guardadoExitoso));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/InicioServlet");
+        dispatcher.forward(request, response);
+
 	}
 }

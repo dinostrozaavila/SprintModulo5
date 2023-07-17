@@ -26,7 +26,7 @@ public class AgregarClienteServlet extends HttpServlet {
 	 */
 	public AgregarClienteServlet() {
 		super();
-		
+
 	}
 
 	/**
@@ -35,14 +35,14 @@ public class AgregarClienteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		// Recupera el Usuario de la sesión HTTP
-        HttpSession session = request.getSession();
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
 
-        // Pasa el Usuario al JSP
-        request.setAttribute("usuario", usuario);
-		
+		// Recupera el Usuario de la sesión HTTP
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+		// Pasa el Usuario al JSP
+		request.setAttribute("usuario", usuario);
+
 		// Verificar si se ha guardado correctamente y mostrar ventana emergente en caso
 		// afirmativo
 		boolean guardadoExitoso = Boolean.parseBoolean((String) request.getAttribute("guardadoExitoso"));
@@ -52,19 +52,18 @@ public class AgregarClienteServlet extends HttpServlet {
 		getServletContext().getRequestDispatcher("/views/agregarCliente.jsp").forward(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		/// Para aceptar caracteres especiales
 		request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
-        HttpSession session = request.getSession();
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
-        
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+
 		// Obtener los parámetros del formulario
-        
+
 		String telefono = request.getParameter("telefono");
 		String afp = request.getParameter("afp");
 		int sistemaSalud = Integer.parseInt(request.getParameter("sistemaSalud"));
@@ -73,22 +72,23 @@ public class AgregarClienteServlet extends HttpServlet {
 		int edad = Integer.parseInt(request.getParameter("edad"));
 
 		// Crear una instancia de la clase Cliente y asignar los valores
-		Cliente cliente = new Cliente(usuario.getRut(), usuario.getNombre(), usuario.getFechaNacimiento(), usuario.getTipoUsuario(), telefono, afp, sistemaSalud, direccion, comuna, edad);
-		
+		Cliente cliente = new Cliente(usuario.getRut(), usuario.getNombre(), usuario.getFechaNacimiento(),
+				usuario.getTipoUsuario(), telefono, afp, sistemaSalud, direccion, comuna, edad);
+
 		// Se guardan los datos de cliente
 		ClienteDAO clienteDao = new ClienteDAO();
 
 		try {
-            clienteDao.guardarCliente(cliente);
-            boolean guardadoExitoso = true;
-            request.setAttribute("guardadoExitoso", String.valueOf(guardadoExitoso));
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+			clienteDao.guardarCliente(cliente);
+			boolean guardadoExitoso = true;
+			request.setAttribute("guardadoExitoso", String.valueOf(guardadoExitoso));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/InicioServlet");
-        dispatcher.forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/InicioServlet");
+		dispatcher.forward(request, response);
 
-        doGet(request, response);
+		doGet(request, response);
 	}
 }

@@ -21,7 +21,7 @@
             <%
             Administrativo administrativo = (Administrativo) request.getAttribute("administrativo");
             %>
-            <input type="hidden" name="rutAdministrativo" value="<%=administrativo.getRut()%>">
+            <input type="hidden" name="id" value="<%=administrativo.getIdAdministrativo()%>">
 
            
             <div class="form-group">

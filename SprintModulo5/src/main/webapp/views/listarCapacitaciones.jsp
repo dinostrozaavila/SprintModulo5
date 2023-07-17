@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Listar Capacitaciones</title>
+<title>Listado de Capacitaciones</title>
 
 <!-- Enlace a hojas de estilo personalizadas -->
 <link rel="stylesheet" href="views/styles.css">
@@ -16,7 +16,7 @@
 	<%@ include file="/views/navbar.jsp"%>
 
 	<div class="h1-container">
-		<h1>Listar Capacitaciones</h1>
+		<h1>Listado de Capacitaciones</h1>
 	</div>
 
 	<!-- Contenedor de la tabla capacitaciones -->

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- Declaración de la página JSP con configuración de tipo de contenido y codificación -->
 
 <!DOCTYPE html>
@@ -28,10 +28,11 @@
 	<div class="container">
 		<!-- Contenedor principal -->
 
-		<form accept-charset="UTF-8" action="CrearCapacitacionServlet" method="POST">
+		<form accept-charset="UTF-8" action="CrearCapacitacionServlet"
+			method="POST">
 			<!-- Formulario con acción "CrearCapacitacionServlet" y método "POST" -->
 
-			
+
 			<div class="form-row">
 				<div class="form-group col-md-2">
 					<label for="rutCliente">RUT del Cliente:</label>
@@ -95,25 +96,24 @@
 		</form>
 	</div>
 
-        <%-- Verificar si se debe mostrar el mensaje de confirmación --%>
-        <% if (request.getAttribute("guardadoExitoso") != null) { %>
-            <div class="alert alert-success" role="alert">
-                ¡La capacitación se ha creado exitosamente!
-            </div>
-        <% } %>
+	<%-- Verificar si se debe mostrar el mensaje de confirmación --%>
+	<%
+	if (request.getAttribute("guardadoExitoso") != null) {
+	%>
+	<div class="alert alert-success" role="alert">¡La capacitación se
+		ha creado exitosamente!</div>
+	<%
+	}
+	%>
 
-	<!-- Script para mostrar una ventana emergente si se ha guardado exitosamente -->
-
-	<%@ include file="/views/footer.jsp"%>
-	<!-- Inclusión del archivo JSP que contiene el footer -->
-
-	<!-- Agregar el enlace al archivo JS de Bootstrap -->
+	<!-- Agregar el enlace al archivo JS de jQuery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<!-- Enlace al archivo JS de Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
 
 
 

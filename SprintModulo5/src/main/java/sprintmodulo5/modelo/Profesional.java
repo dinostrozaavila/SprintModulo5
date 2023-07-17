@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Profesional extends Usuario {
 
+	private int idProfesional;
     private String titulo; // Título del profesional
     private String fechaIngreso; // Fecha de ingreso del profesional
 
@@ -25,7 +26,7 @@ public class Profesional extends Usuario {
      * @param titulo          Título del profesional.
      * @param fechaIngreso    Fecha de ingreso del profesional.
      */
-    public Profesional(String nombre, String fechaNacimiento, int rut, String tipoUsuario,
+    public Profesional(int rut, String nombre, String fechaNacimiento, String tipoUsuario,
                        String titulo, String fechaIngreso) {
         super(nombre, fechaNacimiento, rut, tipoUsuario);
         this.titulo = titulo;
@@ -128,4 +129,13 @@ public class Profesional extends Usuario {
                 ", tipoUsuario='" + getTipoUsuario() + '\'' +
                 '}';
     }
+	public int getIdProfesional() {
+		return idProfesional;
+	}
+
+	public void setIdProfesional(int idProfesional) {
+		this.idProfesional = idProfesional;
+	}
+
+	
 }

@@ -18,7 +18,7 @@ public class CapacitacionDAO {
     }
     // Agrega un registro de capacitacion a la base de datos
     public void agregarCapacitacion(Capacitacion capacitacion) throws SQLException {
-        String sql = "INSERT INTO capacitaciones (rutCliente, dia, hora, lugar, duracion, cantidad) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO capacitaciones (rut_cliente, dia, hora, lugar, duracion, cantidad) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, capacitacion.getRutCliente());
         statement.setString(2, capacitacion.getDia());
