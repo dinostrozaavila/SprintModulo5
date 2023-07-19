@@ -32,7 +32,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="area">Area:</label>
+                    <label for="area">Área:</label>
                 </div>
                 <div class="form-group col-md-4">
                     <input type="text" id="area" name="area" class="form-control" required>
@@ -69,6 +69,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Inclusión de jQuery -->
+
 </body>
 
 </html>

@@ -6,6 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Administrativo</title>
+
+    <!-- Enlace a hojas de estilo personalizadas -->
+    <link rel="stylesheet" href="views/styles.css">
+
+    <!-- Enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -23,17 +29,24 @@
             %>
             <input type="hidden" name="id" value="<%=administrativo.getIdAdministrativo()%>">
 
-           
-            <div class="form-group">
-                <label for="area">Área:</label>
-                <input type="text" name="area" value="<%=administrativo.getArea()%>" class="form-control">
+            <div class="form-group row">
+                <label for="area" class="col-sm-2 col-form-label">Área:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="area" value="<%=administrativo.getArea()%>" class="form-control">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="experienciaPrevia">Experiencia Previa:</label>
-                <input type="text" name="experienciaPrevia" value="<%=administrativo.getExperienciaPrevia()%>" class="form-control">
+            <div class="form-group row">
+                <label for="experienciaPrevia" class="col-sm-2 col-form-label">Experiencia Previa:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="experienciaPrevia" value="<%=administrativo.getExperienciaPrevia()%>" class="form-control">
+                </div>
             </div>
 
-            <input type="submit" value="Guardar" class="btn btn-primary">
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </div>
         </form>
     </div>
 
@@ -45,3 +58,4 @@
 </body>
 
 </html>
+

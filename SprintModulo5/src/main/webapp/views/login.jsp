@@ -47,8 +47,30 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
-</html>
+	<script>
+		$(document).ready(function() {
+			$('#username').on('input', function() {
+				var username = $(this).val();
+				if (username.trim().length === 0) {
+					$('#usernameError').show();
+				} else {
+					$('#usernameError').hide();
+				}
+			});
 
+
+			$('#password').on('input', function() {
+				var mensaje = $(this).val();
+				if (mensaje.trim().length === 0) {
+					$('#passwordError').show();
+				} else {
+					$('#passwordError').hide();
+				}
+			});
+		});
+	</script>
+
+</html>
 
 
 

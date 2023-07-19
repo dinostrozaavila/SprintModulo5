@@ -7,43 +7,49 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<script src="https://kit.fontawesome.com/987c2bcd8f.js"></script>
 <body onload="getCurrentDateTime()">
 	<section class="pie text-center">
-		<footer class="text-white bg-dark">
-			<div class="container p-3">
+		<footer class="footer bg-dark text-light">
+			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-						<h5 class="text-uppercase mb-0">Desarrollado por:</h5>
+					<div class="col-lg-4 col-md-6">
+						<h5>Un proyecto de:</h5>
 						<ul class="list-unstyled">
-							<li><a class="text-white">Gabriela Moya</a></li>
-							<li><a class="text-white">Camila Fabbroni</a></li>
-							<li><a class="text-white">Omar Sepulveda</a></li>
-							<li><a class="text-white">Daniela Inostroza</a></li>
+							<li><a>Gabriela Moya</a></li>
+							<li><a>Camila Fabbroni</a></li>
+							<li><a>Omar Sepúlveda</a></li>
+							<li><a>Daniela Inostroza</a></li>
+						</ul>
+
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<h5>Contáctanos</h5>
+						<ul class="list-unstyled">
+							<li>+56 9 1234 5678</li>
+							<li>grupo3@talentodigital.cl</li>
 						</ul>
 					</div>
-					<div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-						<h6 class="conectemos">
-							<i class="fa-solid fa-link"></i> Conectemos
-						</h6>
-						<ul class="nav-item active">
-							<li><a href="#"><i class="fa-brands fa-github"></i>
-									Github</a></li>
+					<div class="col-lg-4">
+						<h5>Encuéntranos</h5>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
 						</ul>
 					</div>
 				</div>
+				<hr>
+				<div class="row">
+					<div class="col text-center">
+						<p>&copy; 2023 Talento Digital para Chile.</p>
+					</div>
+				</div>
 			</div>
-			<!-- Copyright -->
-			<div class="text-center p-3"
-				style="background-color: rgba(0, 0, 0, 0.2);">
-				© 2023 Copyright: <a class="text-white"
-					href="https://mdbootstrap.com/">Talento Digital para Chile</a>
-			</div>
-			<!-- Copyright -->
 		</footer>
 	</section>
 </body>
 </html>
-
 
 

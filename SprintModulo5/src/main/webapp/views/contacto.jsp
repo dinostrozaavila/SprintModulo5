@@ -36,6 +36,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" required>
+					<div id="nombreUsuarioError" class="alert alert-danger" role="alert" style="display: none;">No puede quedar nulo</div>
 				</div>
 			</div>
 
@@ -45,6 +46,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<input type="email" id="correoElectronico" name="correoElectronico" class="form-control" required>
+					<div id="correoElectronicoError" class="alert alert-danger" role="alert" style="display: none;">Tiene que incluir el caracter @</div>
 				</div>
 			</div>
 
@@ -54,6 +56,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<textarea id="mensaje" name="mensaje" rows="4" class="form-control" required></textarea>
+					<div id="mensajeError" class="alert alert-danger" role="alert" style="display: none;">No puede quedar nulo</div>
 				</div>
 			</div>
 
@@ -62,25 +65,48 @@
 		</form>
 	</div>
 
-	<%
-	if ("true".equals(request.getAttribute("mostrarVentanaEmergente"))) {
-	%>
-	<script>
-		alert("Guardado exitoso");
-	</script>
-	<%
-	}
-	%>
-	<!-- Script para mostrar una ventana emergente si se ha guardado exitosamente -->
-
 	<%@ include file="/views/footer.jsp"%>
 	<!-- Inclusión del archivo JSP que contiene el footer -->
 
 	<!-- Agregar el enlace al archivo JS de Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#nombreUsuario').on('input', function() {
+				var nombreUsuario = $(this).val();
+				if (nombreUsuario.trim().length === 0) {
+					$('#nombreUsuarioError').show();
+				} else {
+					$('#nombreUsuarioError').hide();
+				}
+			});
+
+			$('#correoElectronico').on('input', function() {
+				var correoElectronico = $(this).val();
+				if (correoElectronico.indexOf('@') === -1) {
+					$('#correoElectronicoError').show();
+				} else {
+					$('#correoElectronicoError').hide();
+				}
+			});
+
+			$('#mensaje').on('input', function() {
+				var mensaje = $(this).val();
+				if (mensaje.trim().length === 0) {
+					$('#mensajeError').show();
+				} else {
+					$('#mensajeError').hide();
+				}
+			});
+		});
+	</script>
+	<!-- Script para mostrar las alertas en tiempo real -->
 </body>
+
 </html>
+
 
 
 

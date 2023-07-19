@@ -36,15 +36,17 @@
                 </div>
                 <div class="form-group col-md-4">
                     <input type="text" id="titulo" name="titulo" class="form-control" required>
+                    <div id="tituloError" class="alert alert-danger" role="alert" style="display: none;">El título debe tener entre 10 y 50 caracteres.</div>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="fechaIngreso">Fecha de Ingreso:</label>
+                    <label for="fechaIngreso">Fecha de Ingreso (aaaa/mm/dd):</label>
                 </div>
                 <div class="form-group col-md-4">
                     <input type="text" id="fechaIngreso" name="fechaIngreso" class="form-control" required>
+                    <div id="fechaIngresoError" class="alert alert-danger" role="alert" style="display: none;">La fecha de ingreso debe tener el formato aaaa/mm/dd.</div>
                 </div>
             </div>
 
@@ -69,6 +71,29 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Inclusión de jQuery -->
+
+    <script>
+        $(document).ready(function() {
+            $('#titulo').on('input', function() {
+                var titulo = $(this).val();
+                if (titulo.trim().length < 10 || titulo.trim().length > 50) {
+                    $('#tituloError').show();
+                } else {
+                    $('#tituloError').hide();
+                }
+            });
+
+            $('#fechaIngreso').on('input', function() {
+                var fechaIngreso = $(this).val();
+                if (!/^(\d{4})\/(\d{2})\/(\d{2})$/.test(fechaIngreso)) {
+                    $('#fechaIngresoError').show();
+                } else {
+                    $('#fechaIngresoError').hide();
+                }
+            });
+        });
+    </script>
+    <!-- Script para mostrar las alertas en tiempo real -->
 </body>
 
 </html>
